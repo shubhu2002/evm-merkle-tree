@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "node": "hardhat node",
+    "node": "npx ts-node scripts/generateMerkle.ts && hardhat node",
     "deploy": "hardhat run scripts/deploy.ts --network localhost",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate":"npx ts-node scripts/generateMerkle.ts",
+    "backend":"npx ts-node backend/server.ts",
+    "verify":"npx ts-node frontend/verify.ts"
   },
   "keywords": [],
   "author": "",

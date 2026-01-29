@@ -1,11 +1,11 @@
 import { ethers } from "ethers";
 
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // deployed contract address
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // deployed contract address 
 const abi = [
   "function verify(address account, bytes32[] calldata proof) view returns (bool)"
 ];
 
-async function verify(address){
+async function verify(address:string){
   const res = await fetch(`http://localhost:3001/proof/${address}`);
 
   const { proof } = await res.json();
