@@ -3,9 +3,9 @@ import fs from "fs";
 
 async function main() {
   const data = JSON.parse(
-    fs.readFileSync("./data/whitelist.json","utf8")
+    fs.readFileSync("./addresses-merkle-tree.json","utf8")
   );
-
+console.log(data.root);
   const Factory = await ethers.getContractFactory("MerkleVerifier");
   const contract = await Factory.deploy(data.root);
 

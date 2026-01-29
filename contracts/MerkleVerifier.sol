@@ -16,10 +16,17 @@ contract MerkleVerifier is Ownable {
     }
 
     function verify(
-        address account,
+        string calldata key,
+        string calldata value,
         bytes32[] calldata proof
     ) external view returns (bool) {
-        bytes32 leaf = keccak256(abi.encodePacked(account));
-        return MerkleProof.verify(proof, merkleRoot, leaf);
+         bytes32 leaf = keccak256(
+            abi.encodePacked(key, ":", value)
+        );
+        return MerkleProof.verify(
+            proof,
+            merkleRoot,
+            leaf
+        );
     }
 }
